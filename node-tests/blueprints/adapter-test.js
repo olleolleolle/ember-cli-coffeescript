@@ -12,7 +12,7 @@ describe('Acceptance: ember generate and destroy adapter', function() {
       files: [
         {
           file: 'app/adapters/foo.coffee',
-          contents: [
+          contains: [
             "`import ApplicationAdapter from './application'`"
           ]
         }
@@ -25,7 +25,7 @@ describe('Acceptance: ember generate and destroy adapter', function() {
       files: [
         {
           file: 'app/adapters/foo.coffee',
-          contents: [
+          contains: [
             "`import DS from 'ember-data'`"
           ]
         }
