@@ -13,24 +13,12 @@ describe('Acceptance: ember generate and destroy adapter', function() {
         {
           file: 'app/adapters/foo.coffee',
           contains: [
-            "`import ApplicationAdapter from './application'`"
+            "`import ApplicationAdapter from './application'`",
+            'FooAdapter = ApplicationAdapter.extend()',
+            "`export default FooAdapter`"
           ]
         }
       ]
     });
   });
-
-  it('adapter foo', function() {
-    return generateAndDestroy(['adapter', 'foo'], {
-      files: [
-        {
-          file: 'app/adapters/foo.coffee',
-          contains: [
-            "`import DS from 'ember-data'`"
-          ]
-        }
-      ]
-    });
-  });
-
 });
