@@ -42,5 +42,31 @@ module.exports = {
     if (this.shouldSetupRegistryInIncluded()) {
       this.setupPreprocessorRegistry('parent', app.registry);
     }
+  },
+
+  init: function() {
+    this._super.init && this._super.init.apply(this, arguments);
+
+    this.buildConsole();
+  },
+
+  buildConsole: function() {
+    var ui = this.ui;
+
+    if (!ui) {
+      this.console = console;
+      return;
+    }
+
+    this.console = {
+      log: function(data) {
+        ui.writeLine(data);
+      },
+
+      error: function(data) {
+        ui.writeLine(data, 'ERROR');
+      }
+    };
   }
+
 };
